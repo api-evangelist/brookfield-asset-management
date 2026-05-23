@@ -1,0 +1,344 @@
+aid: brookfield-asset-management
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/brookfield-asset-management/refs/heads/main/apis.yml
+name: Brookfield Asset Management
+description: >-
+  Brookfield Asset Management (NYSE: BAM, TSX: BAM) is a leading global
+  alternative asset manager with over $1 trillion in assets under management
+  and approximately $614 billion in fee-bearing capital. BAM describes itself
+  as "a pure-play, asset-light investment manager with earnings derived from
+  stable, predictable fee-related revenue." The publicly listed manager was
+  formed in December 2022 when it was spun out of Brookfield Corporation (NYSE:
+  BN), which remains the majority shareholder. BAM operates across five
+  investment verticals — Renewable Power & Transition, Infrastructure, Real
+  Estate, Private Equity, and Credit — and adjacent Insurance Solutions
+  capability is delivered through Brookfield Wealth Solutions, a sister
+  business within the broader Brookfield ecosystem. BAM does not publish a
+  public developer API program. Institutional Limited Partners, financial
+  intermediaries, distribution platforms, and portfolio companies interact
+  with the firm through private, authentication-gated investor portals, PDF
+  reporting (10-K, supplemental, letters to shareholders), data feeds from
+  fund administrators, and the investor-relations website at
+  bam.brookfield.com.
+type: Index
+kind: company
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Alternative Assets
+  - Alternative Investments
+  - Asset Management
+  - Credit
+  - Finance
+  - Infrastructure
+  - Insurance Solutions
+  - Investment Management
+  - Private Equity
+  - Real Estate
+  - Renewable Energy
+created: '2026-05-23'
+modified: '2026-05-23'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://bam.brookfield.com
+  - type: GroupWebsite
+    url: https://www.brookfield.com
+  - type: About
+    url: https://bam.brookfield.com/about-us
+  - type: BusinessOverview
+    url: https://bam.brookfield.com/business-overview/our-capabilities
+  - type: InvestingInBAM
+    url: https://bam.brookfield.com/business-overview/investing-bam
+  - type: InvestorRelations
+    url: https://bam.brookfield.com
+  - type: SECFilings
+    url: https://bam.brookfield.com/reports-sec-filings/sec-filings
+  - type: QuarterlyAndAnnualReports
+    url: https://bam.brookfield.com/reports-sec-filings/quarterly-and-annual-reports
+  - type: LettersToShareholders
+    url: https://bam.brookfield.com/reports-sec-filings/letters-shareholders
+  - type: ShareholderMeetingMaterials
+    url: https://bam.brookfield.com/reports-sec-filings/shareholder-meeting-materials
+  - type: InvestorDocumentCenter
+    url: https://bam.brookfield.com/reports-sec-filings/investor-document-center
+  - type: PressReleases
+    url: https://bam.brookfield.com/events-news/press-releases
+  - type: EventsAndFinancialCalendar
+    url: https://bam.brookfield.com/events-news/events-financial-calendar
+  - type: InvestorPresentations
+    url: https://bam.brookfield.com/events-news/investor-presentations
+  - type: InvestorDay
+    url: https://bam.brookfield.com/events-news/investor-day
+  - type: QuoteAndChart
+    url: https://bam.brookfield.com/share-information/quote-chart
+  - type: Distributions
+    url: https://bam.brookfield.com/share-information/distributions
+  - type: AnalystCoverage
+    url: https://bam.brookfield.com/share-information/analyst-coverage
+  - type: TaxInformation
+    url: https://bam.brookfield.com/share-information/tax-information
+  - type: FAQs
+    url: https://bam.brookfield.com/share-information/faqs
+  - type: Sustainability
+    url: https://bam.brookfield.com/sustainability
+  - type: Governance
+    url: https://bam.brookfield.com/governance
+  - type: ContactAndAlerts
+    url: https://bam.brookfield.com/contact-alerts
+  - type: ListedAffiliate
+    name: Brookfield Corporation (BN)
+    url: https://bn.brookfield.com
+  - type: ListedAffiliate
+    name: Brookfield Infrastructure Partners (BIP / BIPC)
+    url: https://bip.brookfield.com
+  - type: ListedAffiliate
+    name: Brookfield Renewable Partners (BEP / BEPC)
+    url: https://bep.brookfield.com
+  - type: ListedAffiliate
+    name: Brookfield Business Partners (BBU / BBUC)
+    url: https://bbu.brookfield.com
+  - type: ListedAffiliate
+    name: Brookfield Wealth Solutions (BNT)
+    url: https://bnt.brookfield.com
+  - type: ListedAffiliate
+    name: Oaktree Specialty Lending (OCSL) — Brookfield credit affiliate via Oaktree
+    url: https://www.oaktreespecialtylending.com
+  - type: Ticker
+    name: NYSE: BAM
+    url: https://www.nyse.com/quote/XNYS:BAM
+  - type: Ticker
+    name: TSX: BAM
+    url: https://www.tsx.com/listings/listing-with-us/listed-company-directory
+  - type: SECEDGAR
+    url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001937658
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/brookfield-asset-management
+  - type: X
+    url: https://x.com/Brookfield
+  - type: YouTube
+    url: https://www.youtube.com/@BrookfieldOfficial
+  - type: GitHub
+    url: https://github.com/brookfield
+  - type: PrivacyPolicy
+    url: https://www.brookfield.com/privacy-policy
+  - type: TermsOfService
+    url: https://www.brookfield.com/terms-and-conditions
+  - type: Verticals
+    data:
+      - name: Renewable Power & Transition
+        description: >-
+          "We are an owner, operator and developer of one of the world's largest
+          clean energy portfolios." Brookfield's largest global transition
+          platform manages $142 billion in AUM across roughly 46,000 MW of
+          generating capacity at 7,000+ power-generating facilities, including
+          ~8,300 MW hydro, ~14,200 MW operating solar (with ~128,900 MW under
+          development), ~17,300 MW operating wind (with ~44,300 MW under
+          development), and ~5,800 MW distributed energy and storage. Adjacent
+          sustainable-solutions strategies include carbon capture, renewable
+          natural gas, and nuclear services. Listed affiliate: Brookfield
+          Renewable Partners (BEP / BEPC). Flagship private funds include the
+          Brookfield Global Transition Fund (BGTF I and BGTF II).
+        url: https://www.brookfield.com/our-businesses/renewable-power-transition
+      - name: Infrastructure
+        description: >-
+          "We are one of the largest investors in global infrastructure, with
+          over 125 years of experience." The Infrastructure vertical manages
+          $255 billion in AUM across four sectors: Utilities (natural gas
+          pipelines, electricity transmission), Transport (rail, toll roads,
+          ports and terminals), Midstream (pipelines, storage, processing), and
+          Data (telecom towers, fiber optic cable, data centers). Notable
+          scale: 308,000 operational telecom sites, 77,000 km of fiber optic
+          cable, and 150 data centers globally. Listed affiliate: Brookfield
+          Infrastructure Partners (BIP / BIPC). Flagship private fund family:
+          Brookfield Infrastructure Fund (BIF I through BIF V).
+        url: https://www.brookfield.com/our-businesses/infrastructure
+      - name: Real Estate
+        description: >-
+          "Acquire high-quality assets, invest on a value basis, and enhance
+          value through active management." The Real Estate vertical manages
+          $277 billion in AUM across Housing, Logistics, Hospitality, Science &
+          Innovation, Office, and Retail sectors. Scale includes 500M+
+          commercial square feet, ~24,000 operating employees, 80,000
+          multifamily units, and 176 full-service hotel properties across 17
+          countries. Flagship private fund family: Brookfield Strategic Real
+          Estate Partners (BSREP I through BSREP V).
+        url: https://www.brookfield.com/our-businesses/real-estate
+      - name: Private Equity
+        description: >-
+          "We are value investors focused on delivering operational
+          transformation in industrials and essential business services." The
+          Private Equity vertical manages $160 billion in AUM with 150
+          investment professionals and approximately 137,000 operating
+          employees across portfolio companies. Sectors include Industrials
+          (advanced batteries, thermal management, returnable packaging, lab
+          testing consumables) and Essential Business Services (BPO, financial
+          services, software, technology services). Notable portfolio
+          companies: Clarios, CDK Global, GEMS Education, Everise, Modulaire,
+          DexKo Global. Listed affiliate: Brookfield Business Partners (BBU /
+          BBUC). Flagship private fund family: Brookfield Capital Partners
+          (BCP).
+        url: https://www.brookfield.com/our-businesses/private-equity
+      - name: Credit
+        description: >-
+          "As one of the world's largest credit investors, we harness the power
+          of our global network to deliver tailored solutions across the credit
+          spectrum." The Credit vertical manages $365 billion in AUM with 700+
+          professionals and relationships with 600+ sponsors. The platform is
+          anchored by Brookfield's 2019 acquisition of a majority stake in
+          Oaktree Capital Management and extends across five strategy
+          categories: Real Estate Credit, Infrastructure & Renewable Energy
+          Credit, Asset-Based Credit (including music royalties, aviation
+          financing, fund finance), Corporate Credit (direct lending, private
+          structured investment grade), and Liquid Credit (investment-grade and
+          high-yield debt). Specialty-manager investments expand capabilities
+          across LCM Partners, Primary Wave Music, Castlelake, Angel Oak, and
+          others.
+        url: https://www.brookfield.com/our-businesses/credit
+      - name: Insurance Solutions (Brookfield Wealth Solutions)
+        description: >-
+          "We focus on securing the financial futures of individuals and
+          institutions through a range of retirement services, wealth
+          protection products and tailored capital solutions." Insurance
+          capability is operated by Brookfield Wealth Solutions (NYSE: BNT) —
+          a sister business within the broader Brookfield ecosystem rather
+          than a direct vertical of BAM — managing $143 billion in insurance
+          assets with ~4,000 operating employees, A- or better financial
+          ratings, and $20 billion in total group capital. Operating
+          subsidiaries include American Equity, American National Insurance,
+          Argo Group, Blumont Annuity, Just Group, and Farm Family Insurance.
+          BAM and BNT are intertwined: BAM provides asset-management services
+          to BNT's insurance general account.
+        url: https://www.brookfield.com/our-businesses/insurance-solutions
+  - type: Funds
+    data:
+      - name: Brookfield Global Transition Fund (BGTF I)
+        description: Inaugural flagship transition private fund — decarbonization, clean energy, sustainable solutions.
+      - name: Brookfield Global Transition Fund II (BGTF II)
+        description: Second-generation transition flagship.
+      - name: Brookfield Infrastructure Fund (BIF I-V)
+        description: Flagship private infrastructure fund family across utilities, transport, midstream, and data infrastructure.
+      - name: Brookfield Strategic Real Estate Partners (BSREP I-V)
+        description: Flagship opportunistic real estate fund family.
+      - name: Brookfield Capital Partners (BCP)
+        description: Flagship private equity fund family targeting industrials and essential business services.
+      - name: Brookfield Infrastructure Debt Fund (BID)
+        description: Infrastructure credit / mezzanine private debt strategy.
+      - name: Brookfield Real Estate Finance (BREF)
+        description: Real estate credit / mortgage finance strategy.
+      - name: Oaktree Opportunities Fund Family
+        description: Oaktree's flagship distressed debt and opportunistic credit fund series, now part of Brookfield Credit.
+      - name: Oaktree Strategic Credit Fund and Oaktree Specialty Lending (OCSL)
+        description: Oaktree direct-lending vehicles within the Brookfield Credit platform.
+  - type: ListedAffiliates
+    data:
+      - name: Brookfield Corporation (NYSE/TSX BN)
+        description: Parent / majority shareholder of BAM; holds the firm's principal capital and a majority economic interest in BAM.
+      - name: Brookfield Infrastructure Partners (NYSE BIP, NYSE BIPC)
+        description: Publicly listed perpetual capital vehicle for the Infrastructure vertical.
+      - name: Brookfield Renewable Partners (NYSE BEP, NYSE BEPC)
+        description: Publicly listed perpetual capital vehicle for the Renewable Power & Transition vertical.
+      - name: Brookfield Business Partners (NYSE BBU, NYSE BBUC)
+        description: Publicly listed perpetual capital vehicle for the Private Equity vertical.
+      - name: Brookfield Wealth Solutions (NYSE BNT)
+        description: Publicly listed insurance / wealth-solutions sister business.
+      - name: Oaktree Specialty Lending (NASDAQ OCSL)
+        description: Listed BDC within the Brookfield Credit platform via Oaktree.
+  - type: Leadership
+    data:
+      - name: Bruce Flatt
+        title: Chair of the Board (also CEO of Brookfield Corporation)
+      - name: Connor Teskey
+        title: Chief Executive Officer (appointed February 2026)
+      - name: Barry Blattman
+        title: Vice Chair
+      - name: Brian Kingston
+        title: Executive Chair, Real Estate
+      - name: Cyrus Madon
+        title: Executive Vice Chair
+      - name: Bruce Karsh
+        title: Oaktree Co-Chairman (Board member)
+  - type: Governance
+    data:
+      - name: Independent Directors
+        description: Angela Braly, Marcel R. Coutu, Scott Cutler, Olivia (Liv) Garfield, Nili Gilbert, Keith Johnson, Diana Noble.
+      - name: Audit Committee
+        description: Chaired by Marcel R. Coutu.
+      - name: Governance, Nominating and Compensation Committee
+        description: Chaired by Olivia Garfield.
+  - type: Features
+    data:
+      - name: Quarterly and Annual Reports
+        description: 10-K, 10-Q, supplemental information, and letters to shareholders published on the BAM investor relations site.
+      - name: Press Releases
+        description: Press releases archive at bam.brookfield.com/events-news/press-releases (12+ pages of historical releases dating to 2022, no public RSS feed observed).
+      - name: Investor Presentations
+        description: Quarterly results presentations, annual Investor Day presentation, and supplemental decks.
+      - name: Sustainability Reporting
+        description: Annual BAM Sustainability Report and Sustainability Policy; supports net-zero by 2050.
+      - name: Email and Investor Alerts
+        description: Email subscription via contact & alerts page; no documented push API or webhook surface.
+      - name: SEC EDGAR Filings
+        description: Form 10-K, 10-Q, 8-K, proxy and other filings available via SEC EDGAR and the BAM SEC filings page.
+  - type: Distribution
+    data:
+      - name: Institutional LPs
+        description: Direct mandates from pension funds, sovereign wealth funds, endowments, foundations, insurance companies, and family offices.
+      - name: Private Wealth
+        description: Distribution into accredited and high-net-worth channels through registered investment advisors and broker-dealers; perpetual products including BREIT-style vehicles.
+      - name: Insurance Channel
+        description: Asset-management mandates for Brookfield Wealth Solutions' insurance general account and third-party insurers.
+      - name: Wealth Distribution Platforms
+        description: Alternative-investment marketplaces and feeder-fund platforms (e.g., iCapital, CAIS) used industry-wide for advisor distribution of private alternatives.
+  - type: ScaleMetrics
+    data:
+      - name: Total AUM
+        value: $1 trillion+
+      - name: Fee-Bearing Capital
+        value: ~$614 billion
+      - name: Renewable Power & Transition AUM
+        value: $142 billion
+      - name: Infrastructure AUM
+        value: $255 billion
+      - name: Real Estate AUM
+        value: $277 billion
+      - name: Private Equity AUM
+        value: $160 billion
+      - name: Credit AUM
+        value: $365 billion
+      - name: Insurance / Wealth Solutions AUM
+        value: $143 billion
+      - name: Operating Employees Across Portfolio
+        value: 250,000+
+      - name: Countries of Operation
+        value: 50+
+      - name: Institutional Clients
+        value: 2,000+
+      - name: Heritage
+        value: 125 years as owner-operator
+      - name: Long-Term / Perpetual Capital Share of Fee Revenue
+        value: 95%
+      - name: Dividend Payout Ratio
+        value: ~90%+
+  - type: Megatrends
+    data:
+      - name: Decarbonization
+      - name: Digitalization
+      - name: Deglobalization
+  - type: Absences
+    data:
+      - name: No Public Developer API
+        description: BAM does not publish a public REST/GraphQL/OpenAPI developer API for investors, distribution platforms, or portfolio companies.
+      - name: No Public GitHub Repositories
+        description: A `github.com/brookfield` organization exists but exposes no public repositories and no public members. No OpenAPI specs, SDKs, CLIs, or tools are published.
+      - name: No Public RSS Feed
+        description: Press release and shareholder letter pages are HTML / PDF only; no `feed.xml` or Atom feed was discovered.
+      - name: No Public Webhook or Event Bus
+        description: All investor and portfolio interactions are file/email or portal driven; no public eventing surface.
+      - name: No Public Pricing Surface
+        description: BAM's commercial surface is fund management/performance fees set in private LP agreements; there is no public price list.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
