@@ -1,0 +1,724 @@
+"""
+Brookfield Asset Management - Conceptual GraphQL Schema
+
+Brookfield Asset Management (NYSE: BAM, TSX: BAM) does not publish a public
+GraphQL API. This is a conceptual data model representing the core domain
+entities of a global alternative asset manager, derived from BAM's publicly
+disclosed fund structures, investment verticals, SEC filings, and standard
+private-markets data conventions.
+
+Source references:
+  - BAM Investor Relations: https://bam.brookfield.com
+  - SEC EDGAR CIK 0001937658: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001937658
+  - BAM Quarterly Supplemental Information packages
+  - BAM Annual Reports (Form 10-K)
+  - Standard LP portal / fund-administrator data models (Allvue, iLEVEL, Cobalt)
+"""
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+scalar Date
+scalar DateTime
+scalar Decimal
+scalar Currency
+scalar ISIN
+scalar CIK
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+"""Investment vertical / asset class grouping used by BAM."""
+enum AssetClassType {
+  RENEWABLE_POWER_AND_TRANSITION
+  INFRASTRUCTURE
+  REAL_ESTATE
+  PRIVATE_EQUITY
+  CREDIT
+  INSURANCE_SOLUTIONS
+  MULTI_ASSET
+}
+
+"""Legal structure of a fund vehicle."""
+enum FundStructure {
+  LIMITED_PARTNERSHIP
+  SEPARATELY_MANAGED_ACCOUNT
+  CLOSED_END_FUND
+  OPEN_END_FUND
+  LISTED_VEHICLE
+  BUSINESS_DEVELOPMENT_COMPANY
+  REAL_ESTATE_INVESTMENT_TRUST
+  CO_INVESTMENT
+  SEPARATELY_MANAGED_ACCOUNT_COMMINGLED
+}
+
+"""Stage in the fund lifecycle."""
+enum FundStatus {
+  FUNDRAISING
+  INVESTING
+  HARVESTING
+  WOUND_DOWN
+}
+
+"""Type of capital commitment event."""
+enum CommitmentType {
+  INITIAL_COMMITMENT
+  ADDITIONAL_COMMITMENT
+  TRANSFER_IN
+  TRANSFER_OUT
+  REDUCTION
+}
+
+"""Direction of a cash flow between fund and LP."""
+enum CashFlowDirection {
+  CALL
+  DISTRIBUTION
+  RECALLABLE_DISTRIBUTION
+  RETURN_OF_CAPITAL
+  INCOME_DISTRIBUTION
+  CARRIED_INTEREST
+  MANAGEMENT_FEE
+}
+
+"""Broad property / real-asset sector classification."""
+enum SectorType {
+  UTILITIES
+  TRANSPORT
+  MIDSTREAM
+  DATA_INFRASTRUCTURE
+  OFFICE
+  RETAIL
+  LOGISTICS
+  HOUSING
+  HOSPITALITY
+  SCIENCE_AND_INNOVATION
+  INDUSTRIALS
+  ESSENTIAL_BUSINESS_SERVICES
+  CLEAN_ENERGY
+  CARBON_CAPTURE
+  RENEWABLE_NATURAL_GAS
+  NUCLEAR_SERVICES
+  REAL_ESTATE_CREDIT
+  INFRASTRUCTURE_CREDIT
+  ASSET_BASED_CREDIT
+  CORPORATE_CREDIT
+  LIQUID_CREDIT
+  DISTRESSED_DEBT
+  DIRECT_LENDING
+}
+
+"""ESG / sustainability classification."""
+enum SustainabilityLabel {
+  ARTICLE_6
+  ARTICLE_8
+  ARTICLE_9
+  TRANSITION_FOCUSED
+  IMPACT
+  RESPONSIBLE_INVESTMENT
+}
+
+# ---------------------------------------------------------------------------
+# Core types
+# ---------------------------------------------------------------------------
+
+"""
+A fund vehicle managed by Brookfield Asset Management or one of its
+investment platforms (including Oaktree). Funds are the primary
+fee-bearing capital units within BAM's reporting.
+"""
+type Fund {
+  id: ID!
+  name: String!
+  shortName: String
+  series: String
+  vintage: Vintage
+  assetClass: AssetClass!
+  strategy: Strategy!
+  structure: FundStructure!
+  status: FundStatus!
+  currency: String!
+  targetSize: Decimal
+  committedCapital: Decimal
+  deployedCapital: Decimal
+  feeBearingCapital: Decimal
+  managementFeeRate: Decimal
+  carriedInterestRate: Decimal
+  preferredReturn: Decimal
+  investmentPeriodEnd: Date
+  terminationDate: Date
+  generalPartner: GeneralPartner!
+  limitedPartners: [LimitedPartner!]
+  commitments: [Commitment!]
+  drawdowns: [Drawdown!]
+  distributions: [Distribution!]
+  investments: [Investment!]
+  portfolio: Portfolio
+  nav: [NAV!]
+  performance: FundPerformance
+  geography: [Geography!]
+  sector: [Sector!]
+  sustainabilityLabel: SustainabilityLabel
+  isin: ISIN
+  secCIK: CIK
+  listedTicker: String
+  exchange: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+Asset class grouping aligned with BAM's five investment verticals
+plus the Insurance Solutions / Brookfield Wealth Solutions channel.
+"""
+type AssetClass {
+  id: ID!
+  type: AssetClassType!
+  name: String!
+  description: String
+  totalAUM: Decimal
+  feeBearingCapital: Decimal
+  funds: [Fund!]
+  investments: [Investment!]
+  strategies: [Strategy!]
+  geographies: [Geography!]
+  sectors: [Sector!]
+}
+
+"""
+An individual investment made by a fund into an operating business,
+real asset, security, or loan. Maps to a portfolio-company or
+asset-level holding within a fund.
+"""
+type Investment {
+  id: ID!
+  name: String!
+  description: String
+  fund: Fund!
+  assetClass: AssetClass!
+  sector: Sector
+  geography: Geography
+  entryDate: Date!
+  exitDate: Date
+  entryEquity: Decimal
+  currentEquityValue: Decimal
+  realisedProceeds: Decimal
+  totalValue: Decimal
+  ownership: Decimal
+  isRealised: Boolean!
+  moic: MOIC
+  irr: IRR
+  property: Property
+  infrastructure: InfrastructureAsset
+  privateEquityHolding: PrivateEquityHolding
+  creditPosition: CreditPosition
+  renewable: RenewableAsset
+  reit: REIT
+  sustainabilityMetrics: SustainabilityMetrics
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A portfolio is the aggregate collection of investments held by a
+fund or across an asset class at a point in time.
+"""
+type Portfolio {
+  id: ID!
+  fund: Fund
+  assetClass: AssetClass
+  asDate: Date!
+  totalFairValue: Decimal!
+  unrealisedFairValue: Decimal
+  realisedValue: Decimal
+  investments: [Investment!]!
+  nav: NAV
+  totalIRR: IRR
+  totalMOIC: MOIC
+}
+
+# ---------------------------------------------------------------------------
+# Asset-class-specific types
+# ---------------------------------------------------------------------------
+
+"""A real estate property asset held within the Real Estate vertical."""
+type Property {
+  id: ID!
+  investment: Investment!
+  address: String
+  city: String
+  country: String
+  sector: SectorType!
+  grossLeasableArea: Decimal
+  numberOfUnits: Int
+  occupancyRate: Decimal
+  annualNOI: Decimal
+  capRate: Decimal
+  appraisedValue: Decimal
+  asDate: Date
+}
+
+"""
+An infrastructure asset (utility, transport, midstream, data)
+held within the Infrastructure vertical.
+"""
+type InfrastructureAsset {
+  id: ID!
+  investment: Investment!
+  sector: SectorType!
+  geography: Geography
+  description: String
+  regulatoryFramework: String
+  contractedRevenuePercent: Decimal
+  remainingConcessionYears: Int
+  annualEBITDA: Decimal
+  enterpriseValue: Decimal
+  asDate: Date
+}
+
+"""
+A private equity holding within the Private Equity vertical,
+covering industrials and essential business services.
+"""
+type PrivateEquityHolding {
+  id: ID!
+  investment: Investment!
+  companyName: String!
+  sector: SectorType!
+  geography: Geography
+  revenue: Decimal
+  ebitda: Decimal
+  ebitdaMargin: Decimal
+  netDebt: Decimal
+  enterpriseValue: Decimal
+  employees: Int
+  asDate: Date
+}
+
+"""
+A credit position (loan, bond, structured credit, or direct lending)
+within the Credit vertical or Oaktree platform.
+"""
+type CreditPosition {
+  id: ID!
+  investment: Investment!
+  instrumentType: String!
+  issuer: String
+  seniority: String
+  coupon: Decimal
+  maturityDate: Date
+  faceValue: Decimal
+  marketValue: Decimal
+  yield: Decimal
+  durationYears: Decimal
+  creditRating: String
+  isDistressed: Boolean
+  asDate: Date
+}
+
+"""
+A renewable power or transition asset (solar, wind, hydro, storage)
+within the Renewable Power and Transition vertical.
+"""
+type RenewableAsset {
+  id: ID!
+  investment: Investment!
+  technologyType: String!
+  installedCapacityMW: Decimal
+  annualGenerationMWh: Decimal
+  contractedRevenuePercent: Decimal
+  ppaTerm: Int
+  geography: Geography
+  co2AvoidedTonnes: Decimal
+  asDate: Date
+}
+
+"""
+A Real Estate Investment Trust (REIT) vehicle or REIT-like
+listed perpetual-capital affiliate.
+"""
+type REIT {
+  id: ID!
+  investment: Investment
+  fund: Fund
+  name: String!
+  ticker: String
+  exchange: String
+  totalAssets: Decimal
+  ffo: Decimal
+  affo: Decimal
+  dividendYield: Decimal
+  navPerUnit: Decimal
+  sectors: [SectorType!]
+  geographies: [Geography!]
+  asDate: Date
+}
+
+# ---------------------------------------------------------------------------
+# LP / GP and commitment types
+# ---------------------------------------------------------------------------
+
+"""
+A Limited Partner (LP) — an institutional or private-wealth investor
+that has made commitments to one or more BAM-managed funds.
+"""
+type LimitedPartner {
+  id: ID!
+  name: String!
+  type: String
+  domicile: String
+  totalCommitments: Decimal
+  totalContributions: Decimal
+  totalDistributions: Decimal
+  currentNAV: Decimal
+  funds: [Fund!]
+  commitments: [Commitment!]
+  drawdowns: [Drawdown!]
+  distributions: [Distribution!]
+  irr: IRR
+  moic: MOIC
+}
+
+"""
+The General Partner entity responsible for managing a fund.
+For BAM funds this is typically a Brookfield or Oaktree GP entity.
+"""
+type GeneralPartner {
+  id: ID!
+  name: String!
+  registeredJurisdiction: String
+  parentManager: String
+  funds: [Fund!]!
+  managementFeeEarned: Decimal
+  carriedInterestEarned: Decimal
+  feeRelatedEarnings: Decimal
+  asDate: Date
+}
+
+"""
+A capital commitment made by a Limited Partner to a Fund,
+specifying the amount and currency they have agreed to invest.
+"""
+type Commitment {
+  id: ID!
+  fund: Fund!
+  limitedPartner: LimitedPartner!
+  type: CommitmentType!
+  committedAmount: Decimal!
+  currency: String!
+  effectiveDate: Date!
+  expiryDate: Date
+  calledAmount: Decimal
+  uncalledAmount: Decimal
+  recycledAmount: Decimal
+  notes: String
+}
+
+"""
+A capital call (drawdown) made by the GP on LP commitments.
+Represents cash flowing from LP to the fund.
+"""
+type Drawdown {
+  id: ID!
+  fund: Fund!
+  limitedPartner: LimitedPartner
+  callNumber: Int
+  callDate: Date!
+  dueDate: Date!
+  calledAmount: Decimal!
+  currency: String!
+  purpose: String
+  cumulativeCalled: Decimal
+  remainingCommitment: Decimal
+}
+
+"""
+A distribution made by the fund back to Limited Partners.
+Covers return of capital, income, and carried-interest distributions.
+"""
+type Distribution {
+  id: ID!
+  fund: Fund!
+  limitedPartner: LimitedPartner
+  distributionNumber: Int
+  distributionDate: Date!
+  amount: Decimal!
+  currency: String!
+  direction: CashFlowDirection!
+  isRecallable: Boolean!
+  cumulativeDistributions: Decimal
+  dpi: Decimal
+  notes: String
+}
+
+# ---------------------------------------------------------------------------
+# Valuation and performance types
+# ---------------------------------------------------------------------------
+
+"""
+Net Asset Value (NAV) of a fund or LP account at a reporting date.
+BAM publishes quarterly NAV via supplemental information packages.
+"""
+type NAV {
+  id: ID!
+  fund: Fund
+  limitedPartner: LimitedPartner
+  asDate: Date!
+  currency: String!
+  grossNAV: Decimal!
+  netNAV: Decimal!
+  navPerUnit: Decimal
+  totalContributions: Decimal
+  totalDistributions: Decimal
+  unrealisedGainLoss: Decimal
+  realisedGainLoss: Decimal
+}
+
+"""Return metrics for a fund, investment, or LP account."""
+type Return {
+  id: ID!
+  fund: Fund
+  investment: Investment
+  limitedPartner: LimitedPartner
+  asDate: Date!
+  grossReturn: Decimal
+  netReturn: Decimal
+  annualisedReturn: Decimal
+  benchmarkReturn: Decimal
+  excessReturn: Decimal
+  totalValuePaid: Decimal
+  distributedPaid: Decimal
+  residualValuePaid: Decimal
+}
+
+"""
+Internal Rate of Return (IRR) — the annualised discount rate that
+makes NPV of all cash flows equal to zero. BAM reports gross and
+net IRR in fund performance tables and SEC filings.
+"""
+type IRR {
+  id: ID!
+  fund: Fund
+  investment: Investment
+  asDate: Date!
+  grossIRR: Decimal
+  netIRR: Decimal
+  since: Date
+  currency: String!
+  isRealised: Boolean!
+  notes: String
+}
+
+"""
+Multiple on Invested Capital (MOIC) — total value (realised +
+unrealised) divided by invested capital. Also called TVPI or
+total value multiple.
+"""
+type MOIC {
+  id: ID!
+  fund: Fund
+  investment: Investment
+  asDate: Date!
+  grossMOIC: Decimal
+  netMOIC: Decimal
+  dpi: Decimal
+  rvpi: Decimal
+  tvpi: Decimal
+  isRealised: Boolean!
+  notes: String
+}
+
+"""
+Aggregated performance metrics for a fund as reported in BAM
+supplemental information and SEC filings.
+"""
+type FundPerformance {
+  id: ID!
+  fund: Fund!
+  asDate: Date!
+  committedCapital: Decimal
+  investedCapital: Decimal
+  realisedValue: Decimal
+  unrealisedValue: Decimal
+  totalValue: Decimal
+  grossIRR: Decimal
+  netIRR: Decimal
+  grossMOIC: Decimal
+  netMOIC: Decimal
+  dpi: Decimal
+  rvpi: Decimal
+  tvpi: Decimal
+  managementFeesPaid: Decimal
+  carriedInterestPaid: Decimal
+  currency: String!
+}
+
+# ---------------------------------------------------------------------------
+# Classification types
+# ---------------------------------------------------------------------------
+
+"""
+A vintage year representing the year a fund held its first close
+or made its first investment — the standard private-markets
+performance-comparison cohort.
+"""
+type Vintage {
+  id: ID!
+  year: Int!
+  funds: [Fund!]
+  industryBenchmarkIRR: Decimal
+  notes: String
+}
+
+"""
+An investment strategy within an asset class (e.g., opportunistic
+real estate, core-plus infrastructure, direct lending, distressed debt).
+"""
+type Strategy {
+  id: ID!
+  name: String!
+  assetClass: AssetClass!
+  description: String
+  returnProfile: String
+  riskProfile: String
+  typicalHoldingPeriodYears: Int
+  leverageProfile: String
+  funds: [Fund!]
+  investments: [Investment!]
+}
+
+"""
+An industry/property sector classification used to group
+investments across BAM's verticals.
+"""
+type Sector {
+  id: ID!
+  name: String!
+  type: SectorType!
+  assetClass: AssetClass
+  description: String
+  investments: [Investment!]
+  funds: [Fund!]
+}
+
+"""
+A geographic region, country, or market in which BAM or its
+funds are invested. BAM operates in 50+ countries.
+"""
+type Geography {
+  id: ID!
+  name: String!
+  countryCode: String
+  region: String
+  description: String
+  investments: [Investment!]
+  funds: [Fund!]
+  totalAUM: Decimal
+}
+
+"""
+ESG and sustainability metrics for an individual investment or
+renewable asset, aligned with BAM's net-zero-by-2050 commitment.
+"""
+type SustainabilityMetrics {
+  id: ID!
+  investment: Investment!
+  asDate: Date!
+  co2EmissionsTonnes: Decimal
+  co2AvoidedTonnes: Decimal
+  renewableEnergyMWh: Decimal
+  waterUsageLitres: Decimal
+  wasteRecycledPercent: Decimal
+  sustainabilityLabel: SustainabilityLabel
+  tcfdAligned: Boolean
+  sfdrCategory: String
+  notes: String
+}
+
+# ---------------------------------------------------------------------------
+# Root query type
+# ---------------------------------------------------------------------------
+
+type Query {
+  """Retrieve a single fund by its unique identifier."""
+  fund(id: ID!): Fund
+
+  """List all funds, optionally filtered by asset class or status."""
+  funds(assetClass: AssetClassType, status: FundStatus, vintage: Int): [Fund!]!
+
+  """Retrieve a single investment by its unique identifier."""
+  investment(id: ID!): Investment
+
+  """List investments filtered by fund, asset class, or realisation status."""
+  investments(fundId: ID, assetClass: AssetClassType, isRealised: Boolean): [Investment!]!
+
+  """Retrieve a limited partner by its unique identifier."""
+  limitedPartner(id: ID!): LimitedPartner
+
+  """List limited partners."""
+  limitedPartners: [LimitedPartner!]!
+
+  """Retrieve a general partner by its unique identifier."""
+  generalPartner(id: ID!): GeneralPartner
+
+  """List general partners."""
+  generalPartners: [GeneralPartner!]!
+
+  """Retrieve commitments for a given fund or LP."""
+  commitments(fundId: ID, limitedPartnerId: ID): [Commitment!]!
+
+  """Retrieve drawdowns for a given fund or LP."""
+  drawdowns(fundId: ID, limitedPartnerId: ID): [Drawdown!]!
+
+  """Retrieve distributions for a given fund or LP."""
+  distributions(fundId: ID, limitedPartnerId: ID): [Distribution!]!
+
+  """Retrieve NAV records for a fund or LP at a given reporting date."""
+  navs(fundId: ID, limitedPartnerId: ID, asDate: Date): [NAV!]!
+
+  """Retrieve fund performance metrics for a given fund."""
+  fundPerformance(fundId: ID!): FundPerformance
+
+  """Retrieve IRR records for a fund or investment."""
+  irrs(fundId: ID, investmentId: ID): [IRR!]!
+
+  """Retrieve MOIC records for a fund or investment."""
+  moics(fundId: ID, investmentId: ID): [MOIC!]!
+
+  """Retrieve all asset classes."""
+  assetClasses: [AssetClass!]!
+
+  """Retrieve all strategies."""
+  strategies(assetClass: AssetClassType): [Strategy!]!
+
+  """Retrieve all sectors."""
+  sectors(assetClass: AssetClassType): [Sector!]!
+
+  """Retrieve all geographies."""
+  geographies(region: String): [Geography!]!
+
+  """Retrieve all vintages."""
+  vintages: [Vintage!]!
+
+  """Retrieve all REITs."""
+  reits: [REIT!]!
+
+  """Retrieve sustainability metrics for an investment."""
+  sustainabilityMetrics(investmentId: ID!): SustainabilityMetrics
+
+  """Retrieve all renewable energy assets."""
+  renewableAssets(geography: String, technologyType: String): [RenewableAsset!]!
+
+  """Retrieve all infrastructure assets."""
+  infrastructureAssets(sector: SectorType, geography: String): [InfrastructureAsset!]!
+
+  """Retrieve all private equity holdings."""
+  privateEquityHoldings(sector: SectorType): [PrivateEquityHolding!]!
+
+  """Retrieve all credit positions."""
+  creditPositions(isDistressed: Boolean, instrumentType: String): [CreditPosition!]!
+
+  """Retrieve all properties."""
+  properties(sector: SectorType, country: String): [Property!]!
+}
