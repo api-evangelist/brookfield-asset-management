@@ -75,7 +75,7 @@ common:
   url: https://bam.brookfield.com/share-information/analyst-coverage
 - type: TaxInformation
   url: https://bam.brookfield.com/share-information/tax-information
-- type: FAQs
+- type: FAQ
   url: https://bam.brookfield.com/share-information/faqs
 - type: Sustainability
   url: https://bam.brookfield.com/sustainability
