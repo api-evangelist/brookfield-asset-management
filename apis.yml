@@ -17,9 +17,20 @@ description: 'Brookfield Asset Management (NYSE: BAM, TSX: BAM) is a leading glo
   from fund administrators, and the investor-relations website at bam.brookfield.com.'
 type: Index
 kind: company
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/brookfield-asset-management.png
 tags:
 - Alternative Assets
 - Alternative Investments
