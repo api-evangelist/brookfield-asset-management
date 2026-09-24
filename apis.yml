@@ -52,7 +52,7 @@ tags:
 - Insurance Solutions
 - Investment Management
 - Private Equity
-- Real-Estate
+- Real Estate
 - Renewable Energy
 tags_raw:
 - Alternative Assets
@@ -66,6 +66,7 @@ tags_raw:
 - Private Equity
 - Real Estate
 - Renewable Energy
+- Real-Estate
 created: '2026-05-23'
 modified: '2026-05-23'
 specificationVersion: '0.23'
@@ -380,8 +381,6 @@ common:
   - name: No Public Pricing Surface
     description: BAM's commercial surface is fund management/performance fees set
       in private LP agreements; there is no public price list.
-- url: graphql/brookfield-asset-management-graphql.md
-  type: GraphQL
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
