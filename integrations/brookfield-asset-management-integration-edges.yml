@@ -34,6 +34,36 @@ edges:
     - BROOKFIELD ASSET MANAGEMENT PIC (ISG), LLC (CRD 312797)
   detected_by: sweep-asset-management.py
   first_seen: '2026-10-18'
+- partner_name: ILPA (Institutional Limited Partners Association)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://ilpa.org/organization/brookfield-asset-management/
+  category: private-markets industry association / reporting-template standard
+  contract_reference:
+    register: ILPA organisations (ilpa.org Member Directory + ILPA Templates Hub endorsers; public WP JSON)
+    standard: ILPA Principles / ILPA Reporting, Performance and Capital Call templates
+    spec_file: null
+    role:
+    - ilpa-signatory
+    organisation_type:
+    - general-partner
+    registered_name: Brookfield Asset Management
+    register_id: ilpa organization 624 (brookfield-asset-management)
+    register_country: canada
+    matched_domain: brookfield.com
+    matched_by: domain+name-among-holders
+    signal_note: 'participation only: ILPA membership / template endorsement is a public commitment, not tested
+      conformance; one edge per organisation, roles are context, never counted'
+    detected_by: sweep-private-markets-fund-admin.py
+    detected: '2026-10-20'
+    identity: wikidata Q133824445 'Brookfield Asset Management' P856 https://bam.brookfield.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-private-markets-fund-admin.py
+  first_seen: '2026-10-20'
 generated: '2026-10-18'
 method: searched
 source:
@@ -42,3 +72,11 @@ source:
 checked:
 - https://reports.adviserinfo.sec.gov/reports/CompilationReports/IA_FIRM_SEC_Feed_10_17_2026.xml.gz
 - https://www.wealthbox.com/wp-json/wp/v2/integrations?per_page=100&page=1
+- https://brokercheck.finra.org/
+- https://ilpa.org/about-ilpa/member-directory/
+- https://ilpa.org/industry-guidance/templates-standards-model-documents/ilpa-templates-hub/template-endorsers/
+- https://ilpa.org/members
+- https://ilpa.org/wp-json/wp/v2/organization
+- https://www.cboe.com/market_data_services/vendors/
+- https://www.fixtrading.org/members/
+- https://www.sec.gov/foia/docs/form-adv-archive-data
