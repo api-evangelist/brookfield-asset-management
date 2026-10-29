@@ -1,4 +1,4 @@
-# Brookfield Asset Management (brookfield-asset-management)
+# Brookfield Asset Management
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,94 +64,87 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Brookfield Asset Management (NYSE: BAM, TSX: BAM) is a leading global alternative asset manager with over $1 trillion in assets under management and approximately $614 billion in fee-bearing capital. The publicly listed manager was formed in December 2022 when it was spun out of Brookfield Corporation (NYSE: BN), which remains the majority shareholder. BAM operates as a "pure-play, asset-light investment manager with earnings derived from stable, predictable fee-related revenue."
+Brookfield Asset Management (NYSE: BAM, TSX: BAM) is a leading global alternative asset manager with over $1 trillion in assets under management and approximately $614 billion in fee-bearing capital. BAM describes itself as "a pure-play, asset-light investment manager with earnings derived from stable, predictable fee-related revenue." The publicly listed manager was formed in December 2022 when it was spun out of Brookfield Corporation (NYSE: BN), which remains the majority shareholder. BAM operates across five investment verticals — Renewable Power & Transition, Infrastructure, Real Estate, Private Equity, and Credit — and adjacent Insurance Solutions capability is delivered through Brookfield Wealth Solutions, a sister business within the broader Brookfield ecosystem. BAM does not publish a public developer API program. Institutional Limited Partners, financial intermediaries, distribution platforms, and portfolio companies interact with the firm through private, authentication-gated investor portals, PDF reporting (10-K, supplemental, letters to shareholders), data feeds from fund administrators, and the investor-relations website at bam.brookfield.com.
 
-**URL:** [https://bam.brookfield.com](https://bam.brookfield.com)
+**Areas:** Alternative Assets · Alternative Investments · Asset Management · Credit · Finance · Infrastructure · Insurance Solutions · Investment Management · Private Equity · Real Estate · Renewable Energy
 
-**Group site:** [https://www.brookfield.com](https://www.brookfield.com)
+## Brookfield Asset Management on APIs.io
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+Everything profiled for Brookfield Asset Management is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/brookfield-asset-management/](https://apis.io/providers/brookfield-asset-management/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### Published properties
 
-Alternative Assets, Alternative Investments, Asset Management, Credit, Finance, Infrastructure, Insurance Solutions, Investment Management, Private Equity, Real Estate, Renewable Energy
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Verticals
+#### GraphQL (1)
 
-- **Renewable Power & Transition** — $142B AUM, ~46,000 MW generating capacity, 7,000+ facilities. Flagship private fund: Brookfield Global Transition Fund (BGTF I/II). Listed affiliate: BEP / BEPC.
-- **Infrastructure** — $255B AUM across Utilities, Transport, Midstream, and Data. 308,000 telecom sites, 77,000 km fiber, 150 data centers. Flagship fund family: Brookfield Infrastructure Fund (BIF I-V). Listed affiliate: BIP / BIPC.
-- **Real Estate** — $277B AUM across Housing, Logistics, Hospitality, Science & Innovation, Office, Retail. 500M+ commercial sq ft; 80,000 multifamily units. Flagship fund family: Brookfield Strategic Real Estate Partners (BSREP I-V).
-- **Private Equity** — $160B AUM, ~137,000 portfolio operating employees. Targets industrials and essential business services. Flagship fund family: Brookfield Capital Partners (BCP). Listed affiliate: BBU / BBUC. Portfolio: Clarios, CDK Global, GEMS Education, Everise, Modulaire, DexKo.
-- **Credit** — $365B AUM, 700+ professionals, 600+ sponsor relationships. Anchored by 2019 majority acquisition of Oaktree Capital Management. Spans Real Estate Credit, Infra/Renewable Credit, Asset-Based Credit, Corporate Credit, and Liquid Credit. Specialty-manager investments: LCM Partners, Primary Wave Music, Castlelake, Angel Oak.
-- **Insurance Solutions (Brookfield Wealth Solutions, NYSE: BNT)** — Sister business managing $143B of insurance assets with $20B of group capital. Operating subsidiaries: American Equity, American National, Argo, Just Group, Blumont Annuity, Farm Family.
+GraphQL schemas.
 
-## Listed Affiliates
+- [Moved to /providers/brookfield-asset-management/](https://apis.io/graphqls/brookfield-asset-management/brookfield-asset-management-graphql/)
 
-- Brookfield Corporation (NYSE/TSX: **BN**) — parent
-- Brookfield Infrastructure Partners (**BIP** / **BIPC**)
-- Brookfield Renewable Partners (**BEP** / **BEPC**)
-- Brookfield Business Partners (**BBU** / **BBUC**)
-- Brookfield Wealth Solutions (**BNT**)
-- Oaktree Specialty Lending (NASDAQ: **OCSL**) — within Brookfield Credit via Oaktree
+#### Security (1)
 
-## Leadership
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Bruce Flatt** — Chair (also CEO of Brookfield Corporation)
-- **Connor Teskey** — CEO (appointed February 2026)
-- **Barry Blattman** — Vice Chair
-- **Brian Kingston** — Executive Chair, Real Estate
-- **Cyrus Madon** — Executive Vice Chair
-- **Bruce Karsh** — Board member (Oaktree Co-Chairman)
+- [Brookfield Asset Management Domain Security](https://apis.io/security/brookfield-asset-management/brookfield-asset-management-domain-security/)
 
-## Investor Relations
+## Where to find this API
 
-- [Business Overview](https://bam.brookfield.com/business-overview/our-capabilities)
-- [Investing in BAM](https://bam.brookfield.com/business-overview/investing-bam)
-- [SEC Filings](https://bam.brookfield.com/reports-sec-filings/sec-filings)
-- [Quarterly & Annual Reports](https://bam.brookfield.com/reports-sec-filings/quarterly-and-annual-reports)
-- [Letters to Shareholders](https://bam.brookfield.com/reports-sec-filings/letters-shareholders)
-- [Press Releases](https://bam.brookfield.com/events-news/press-releases)
-- [Investor Presentations](https://bam.brookfield.com/events-news/investor-presentations)
-- [Investor Day](https://bam.brookfield.com/events-news/investor-day)
-- [Quote & Chart](https://bam.brookfield.com/share-information/quote-chart)
-- [Distributions](https://bam.brookfield.com/share-information/distributions)
-- [Tax Information](https://bam.brookfield.com/share-information/tax-information)
-- [Analyst Coverage](https://bam.brookfield.com/share-information/analyst-coverage)
-- [Sustainability](https://bam.brookfield.com/sustainability)
-- [Governance](https://bam.brookfield.com/governance)
-- [Contact & Alerts](https://bam.brookfield.com/contact-alerts)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Scale Snapshot
+- [Website](https://bam.brookfield.com)
+- [Terms of service](https://www.brookfield.com/terms-and-conditions)
+- [Privacy policy](https://www.brookfield.com/privacy-policy)
 
-- Total AUM: **$1 trillion+**
-- Fee-bearing capital: **~$614B**
-- Operating employees across portfolio: **250,000+**
-- Countries of operation: **50+**
-- Institutional clients: **2,000+**
-- Long-term / perpetual capital share of fee revenue: **95%**
-- Heritage: **125 years** as owner-operator
-- Three guiding megatrends: **decarbonization, digitalization, deglobalization**
+## API Evangelist rating
 
-## API Surface
+**Kin Score 4.5** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-BAM does **not** publish a public developer API. There are no OpenAPI specs, no SDKs, no CLIs, no public webhooks, and no Brookfield-published public RSS feeds. The `github.com/brookfield` organization exists but exposes no public repositories and no public members.
+| Facet | Score |
+|---|---|
+| Discoverability | 50.9 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 0.0 |
 
-Investor, distribution-platform, and portfolio-company integrations run through:
+**Agent readiness 0.0** — human-only
 
-- Private, authentication-gated investor portals
-- PDF reports (10-K, 10-Q, supplemental information, shareholder letters)
-- SEC EDGAR filings
-- Email and investor alert subscriptions (no documented push API)
-- Bespoke data feeds via fund administrators
-- Industry alternative-investment platforms (e.g., iCapital, CAIS) for advisor distribution
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-## Timestamps
+**Regulatory alignment 4.9** — Energy & Utilities
 
-- **Created:** 2026-05-23
-- **Modified:** 2026-05-23
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/brookfield-asset-management/](https://apis.io/providers/brookfield-asset-management/).
 
-## Maintainers
+## How this profile is made
 
-**FN:** Kin Lane
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-**Email:** kin@apievangelist.com
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Brookfield Asset Management: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/brookfield-asset-management/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
